@@ -1,0 +1,24 @@
+// Place all the styles related to the public/cart_items controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.item-name {
+  width: 350px;
+}
+
+.item-price {
+  width: 150px;
+}
+
+.item-amount {
+  width: 200px;
+}
+
+.total_price {
+  margin-left: 600px;
+}
+
+.new_order {
+  margin-right: 200px;
+  margin-top: 30px;
+}

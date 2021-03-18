@@ -1,0 +1,46 @@
+<h4 class="title">商品新規登録</h4>
+
+<div class="container">
+  <%= form_with model: [:admin, @item], local:true do |f| %>
+
+ <div class="row justify-content-center">
+  <div class="col-7">
+ <table class="table">
+  <tr>
+   <th><%= f.label :商品画像　%></th>
+   <td><%= f.attachment_field :image %></td>
+  </tr>
+  <tr>
+   <th><%= f.label :商品名　%></th>
+   <td><%= f.text_field :name, size: "40" %></td>
+  </tr>
+  <tr>
+   <th><%= f.label :商品説明　%></th>
+   <td><%= f.text_area :introduction, size: "40×100" %></td>
+  </tr>
+  <tr>
+   <th><%= f.label :ジャンル　%></th>
+   <td><%= f.collection_select :genre_id, Genre.all, :id, :name, size: "40"  %></td>
+  </tr>
+  <tr>
+   <th><%= f.label :税抜価格 %></th>
+   <td><%= f.text_field :price, size: "40" %>円</td>
+  </tr>
+   <tr>
+  　<th><%= f.label :販売ステータス %></th>
+  　<td><%= f.radio_button  :is_active , true %>
+  　     <%= f.label :is_active , '販売中', value: true, class: "sale" %>
+        <%= f.radio_button  :is_active, false %>
+        <%= f.label  :is_active, '販売停止中', value: false, class: "stop-selling" %></td>
+
+  </tr>
+ </table>
+
+<div class="text-center">
+<%= f.submit '新規登録', class: 'btn btn-success' %>
+</div>
+
+ </div>
+ </div>
+ <% end %>
+</div>

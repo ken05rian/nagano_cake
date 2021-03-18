@@ -1,0 +1,53 @@
+<div class="container">
+  <%= form_with model: @customer, url: admin_customer_path(@customer), local:true do |f| %>
+
+ <div class="row">
+   <div class="col-lg-8">
+     <table class="table">
+       <tr>
+         <th>会員ID</th>
+         <td><%= @customer.id %></td>
+       </tr>
+       <tr>
+         <th><%= f.label :氏名 %></th>
+         <td><%= f.text_field :first_name, autofocus: true %>
+             <%= f.text_field :last_name, autofocus: true %></td>
+       </tr>
+       <tr>
+         <th><%= f.label :フリガナ %></th>
+         <td><%= f.text_field :first_name_kana, autofocus: true %>
+             <%= f.text_field :last_name_kana, autofocus: true %></td>
+       </tr>
+       <tr>
+         <th><%= f.label :郵便番号（ハイフンなし） %></th>
+         <td><%= f.text_field :postal_code %></td>
+       </tr>
+       <tr>
+         <th><%= f.label :住所 %></th>
+         <td><%= f.text_field :address, class: "col-auto w-100" %></td>
+       </tr>
+       <tr>
+         <th><%= f.label :電話番号 %></th>
+         <td><%= f.number_field :telephone_number %></td>
+       </tr>
+       <tr>
+         <th><%= f.label :メールアドレス %></th>
+         <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
+       </tr>
+       <tr>
+         <th><%= f.label :会員ステータス %></th>
+         <td><%= f.radio_button  :is_active , true %>
+             <%= f.label :is_active , '有効', value: true %>
+        　　   <%= f.radio_button  :is_active, false %>
+             <%= f.label  :is_active, '退会', value: false %></td>
+       </tr>
+     </table>
+     <div class="text-center">
+    　　<%= f.submit "変更を保存", class: 'btn btn-success' %>
+ 　 　</div>
+   </div>
+
+<% end %>
+
+ </div>
+</div>

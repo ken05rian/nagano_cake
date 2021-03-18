@@ -1,0 +1,50 @@
+<h4 class="title">新規会員登録</h4>
+
+<div class="container">
+  <%= form_with model: @customer, url: customer_registration_path, id: 'new_customer', class: 'new_customer',local:true do |f| %>
+
+ <div class="row">
+   <div class="col-lg-8">
+     <table class="table">
+       <tr>
+         <th><%= f.label :名前 %></th>
+         <td>(姓)<%= f.text_field :first_name, autofocus: true %>
+             (名)<%= f.text_field :last_name, autofocus: true %></td>
+       </tr>
+       <tr>
+         <th><%= f.label :フリガナ %></th>
+         <td>(セイ)<%= f.text_field :first_name_kana, autofocus: true %>
+            (メイ)<%= f.text_field :last_name_kana, autofocus: true %></td>
+       </tr>
+       <tr>
+         <th><%= f.label :メールアドレス %></th>
+         <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
+       </tr>
+       <tr>
+         <th><%= f.label :郵便番号（ハイフンなし） %></th>
+         <td><%= f.text_field :postal_code %></td>
+       </tr>
+       <tr>
+         <th><%= f.label :住所 %></th>
+         <td><%= f.text_field :address, class: "col-auto w-100" %></td>
+       </tr>
+       <tr>
+         <th><%= f.label :電話番号（ハイフンなし）%></th>
+         <td><%= f.number_field :telephone_number %></td>
+       </tr>
+       <tr>
+         <th><%= f.label :パスワード（６文字以上）%></th>
+         <td><%= f.password_field :password, autocomplete: "new-password" %></td>
+       </tr>
+        <th><%= f.label :パスワード（確認用）%></th>
+        <td> <%= f.password_field :password_confirmation, autocomplete: "new-password" %></td>
+     </table>
+     <div class="text-center">
+    　　<%= f.submit "新規登録", class: 'btn btn-success' %>
+ 　 　</div>
+   </div>
+
+<% end %>
+
+ </div>
+</div>
