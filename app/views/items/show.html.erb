@@ -1,0 +1,23 @@
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4">
+      <%= attachment_image_tag @item, :image, format: 'jpeg', fallback: "no_image.jpg", size: "300x250" %>
+    </div>
+    <div class="col-lg-5">
+
+         <h4 class="item-name"><%= @item.name %></h4>
+
+        <h6 class="item-introduction"><%= @item.introduction %></h6>
+
+         <h5>¥<%= @item.price %>(税込）</h5>
+
+         <%= form_with model: @cart_item, url:'/cart_items', local:true do |f| %>
+          <%= f.label :amount, "数量" %>
+          <%= f.select :amount, [*1..10] %>
+          <%= f.hidden_field :item_id, value: @item.id %>
+          <%= f.submit "カートに入れる", class: "btn btn-success" %>
+         <% end %>
+    </div>
+  </div>
